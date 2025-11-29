@@ -271,4 +271,72 @@ clearBtn.addEventListener('click', () => {
   resetForm();
 });
 
+/* ========== VIEW TOGGLE SECTION ========== */
+
+// Get the view toggle buttons
+var gridViewBtn = document.getElementById('grid-view-btn');
+var listViewBtn = document.getElementById('list-view-btn');
+
+// Function to set a cookie
+function setCookie(name, value, days) {
+  var date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Function to get a cookie
+function getCookie(name) {
+  var cookieName = name + "=";
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(cookieName) === 0) {
+      return cookie.substring(cookieName.length, cookie.length);
+    }
+  }
+  return "";
+}
+
+// Function to switch to grid view
+function switchToGridView() {
+  habitList.classList.remove('list-view');
+  gridViewBtn.classList.add('active');
+  listViewBtn.classList.remove('active');
+  setCookie('habitViewStyle', 'grid', 365);
+}
+
+// Function to switch to list view
+function switchToListView() {
+  habitList.classList.add('list-view');
+  listViewBtn.classList.add('active');
+  gridViewBtn.classList.remove('active');
+  setCookie('habitViewStyle', 'list', 365);
+}
+
+// Add click event to grid view button
+gridViewBtn.addEventListener('click', function() {
+  switchToGridView();
+});
+
+// Add click event to list view button
+listViewBtn.addEventListener('click', function() {
+  switchToListView();
+});
+
+// Load saved view style from cookie when page loads
+function loadSavedViewStyle() {
+  var savedView = getCookie('habitViewStyle');
+  if (savedView === 'list') {
+    switchToListView();
+  } else {
+    switchToGridView();
+  }
+}
+
+// Call the function to load saved view style
+loadSavedViewStyle();
+
+/* ========== END VIEW TOGGLE SECTION ========== */
+
 render();

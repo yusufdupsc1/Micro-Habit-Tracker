@@ -84,8 +84,31 @@
 
     <section class="panel">
       <div class="panel-header">
-        <h2>Habits</h2>
-        <p class="muted">Log today, edit, or delete. Everything stays in your browser.</p>
+        <div class="panel-header-top">
+          <div>
+            <h2>Habits</h2>
+            <p class="muted">Log today, edit, or delete. Everything stays in your browser.</p>
+          </div>
+          <!-- ========== VIEW TOGGLE BUTTONS ========== -->
+          <div class="view-toggle">
+            <button id="grid-view-btn" class="view-btn active" title="Grid View">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+              </svg>
+            </button>
+            <button id="list-view-btn" class="view-btn" title="List View">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <!-- ========== END VIEW TOGGLE BUTTONS ========== -->
+        </div>
       </div>
       <div id="habit-list" class="habit-list" aria-live="polite"></div>
     </section>
