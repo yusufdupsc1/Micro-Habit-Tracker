@@ -193,9 +193,50 @@ button.primary {
   margin-bottom: 12px;
 }
 
+/* ========== VIEW TOGGLE STYLES ========== */
+.panel-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.view-btn {
+  padding: 8px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-btn:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.view-btn.active {
+  background: linear-gradient(135deg, rgba(107, 138, 253, 0.3), rgba(123, 216, 143, 0.3));
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+/* ========== END VIEW TOGGLE STYLES ========== */
+
 .muted {
   color: var(--muted);
   margin: 0;
+}
+
+.habits-desc {
+  margin-bottom: 20px;
 }
 
 .grid {
@@ -238,6 +279,33 @@ button.primary {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 12px;
 }
+
+/* ========== LIST VIEW STYLES ========== */
+.habit-list.list-view {
+  grid-template-columns: 1fr;
+}
+
+.habit-list.list-view .habit-card {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.habit-list.list-view .habit-meta {
+  flex: 1;
+  min-width: 200px;
+}
+
+.habit-list.list-view .streaks {
+  flex: 1;
+  min-width: 250px;
+}
+
+.habit-list.list-view .card-actions {
+  flex: 0 0 auto;
+}
+/* ========== END LIST VIEW STYLES ========== */
 
 .habit-card {
   background: var(--card);
